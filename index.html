@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Averion Engineering Enterprises</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,110 +25,180 @@
 
 body{
     font-family:'Montserrat',sans-serif;
-    background:#111;
-    color:white;
+    background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=80');
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
     overflow:hidden;
-    height:100vh;
+    color:white;
 }
 
-body::before{
-    content:'';
-    position:absolute;
-    width:200%;
-    height:200%;
-    background:
-    radial-gradient(circle at center,
-    rgba(184,115,51,.15),
-    transparent 40%);
-    animation:rotate 30s linear infinite;
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(10,10,10,0.75);
 }
 
 .grid{
-    position:absolute;
+    position:fixed;
     inset:0;
     background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size:60px 60px;
 }
 
 .container{
     position:relative;
     z-index:2;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
     padding:20px;
 }
 
 .content{
-    max-width:800px;
-    animation:fadeUp 1.5s ease;
+    position:relative;
+    width:100%;
+    max-width:900px;
+    text-align:center;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:30px;
+
+    padding:60px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45),
+        0 0 40px rgba(184,115,51,0.15);
+
+    animation:fadeUp 1.2s ease;
+}
+
+.content::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:220px;
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--copper),
+        transparent
+    );
+    box-shadow:0 0 20px var(--copper);
 }
 
 .logo{
-    font-size:18px;
-    letter-spacing:8px;
-    color:var(--copper);
-    margin-bottom:20px;
-    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.logo img{
+    max-width:280px;
+    width:100%;
+    height:auto;
 }
 
 h1{
     font-size:clamp(3rem,8vw,6rem);
+    margin-bottom:15px;
     font-weight:700;
-    color:white;
-    margin-bottom:20px;
-}
-
-.tagline{
-    color:var(--sand);
-    font-size:1.1rem;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin-bottom:30px;
-}
-
-.desc{
-    font-size:1.2rem;
-    color:#d0d0d0;
-    line-height:1.8;
-    margin-bottom:40px;
 }
 
 .line{
     width:120px;
-    height:3px;
-    margin:0 auto 40px;
+    height:4px;
     background:var(--copper);
+    margin:25px auto;
     box-shadow:0 0 20px var(--copper);
 }
 
-.badge{
-    display:inline-block;
-    padding:14px 30px;
-    border:1px solid var(--copper);
-    color:var(--copper);
+.tagline{
+    color:var(--sand);
     text-transform:uppercase;
-    letter-spacing:3px;
-    transition:.4s;
+    letter-spacing:4px;
+    margin-bottom:30px;
+    font-weight:500;
 }
 
-.badge:hover{
-    background:var(--copper);
-    color:white;
+.description{
+    max-width:700px;
+    margin:auto;
+    color:#ddd;
+    line-height:1.9;
+    font-size:1.1rem;
+}
+
+.progress-wrapper{
+    margin-top:40px;
+}
+
+.progress{
+    width:100%;
+    max-width:500px;
+    margin:auto;
+    height:10px;
+    background:#333;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:80%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        var(--copper),
+        #d9a066
+    );
+    animation:loadBar 2.5s ease;
+}
+
+.progress-text{
+    margin-top:12px;
+    color:#ccc;
+}
+
+.contact{
+    margin-top:40px;
+}
+
+.contact a{
+    color:var(--sand);
+    text-decoration:none;
+    margin:0 15px;
+    transition:0.3s;
+}
+
+.contact a:hover{
+    color:var(--copper);
 }
 
 .footer{
-    position:absolute;
-    bottom:30px;
+    position:fixed;
+    bottom:20px;
     width:100%;
     text-align:center;
-    color:#aaa;
-    font-size:.9rem;
-    letter-spacing:2px;
+    color:#bdbdbd;
+    font-size:14px;
+    z-index:2;
+}
+
+.particle{
+    position:fixed;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.35);
+    animation:float 15s linear infinite;
 }
 
 @keyframes fadeUp{
@@ -143,12 +212,46 @@ h1{
     }
 }
 
-@keyframes rotate{
+@keyframes loadBar{
+    from{width:0;}
+    to{width:80%;}
+}
+
+@keyframes float{
     from{
-        transform:rotate(0deg);
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
     }
     to{
-        transform:rotate(360deg);
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+
+    .content{
+        padding:40px 25px;
+    }
+
+    h1{
+        font-size:3rem;
+    }
+
+    .tagline{
+        letter-spacing:2px;
+    }
+
+    .description{
+        font-size:1rem;
+    }
+
+    .contact a{
+        display:block;
+        margin:10px 0;
     }
 }
 
@@ -157,16 +260,25 @@ h1{
 
 <body>
 
+<div class="overlay"></div>
 <div class="grid"></div>
 
+<div class="particle" style="left:10%;animation-delay:0s"></div>
+<div class="particle" style="left:25%;animation-delay:2s"></div>
+<div class="particle" style="left:40%;animation-delay:5s"></div>
+<div class="particle" style="left:55%;animation-delay:1s"></div>
+<div class="particle" style="left:70%;animation-delay:4s"></div>
+<div class="particle" style="left:85%;animation-delay:3s"></div>
+
 <div class="container">
+
     <div class="content">
 
         <div class="logo">
-            AVERION
+            logo.png
         </div>
 
-        <h1>COMING SOON</h1>
+        <h1>Building The Future</h1>
 
         <div class="line"></div>
 
@@ -174,21 +286,35 @@ h1{
             Engineering • Innovation • Excellence
         </div>
 
-        <p class="desc">
-            We are crafting a premium digital experience that reflects
-            our commitment to engineering excellence, innovative solutions,
-            and exceptional project delivery.
-        </p>
+        <div class="description">
+            Averion Engineering Enterprises is crafting a premium
+            digital experience that reflects our commitment to
+            engineering excellence, innovation, and exceptional
+            project delivery.
+        </div>
 
-        <div class="badge">
-            Launching Soon
+        <div class="progress-wrapper">
+            <div class="progress">
+                <div class="progress-fill"></div>
+            </div>
+
+            <div class="progress-text">
+                Website Progress • 80%
+            </div>
+        </div>
+
+        <div class="contact">
+            info@averion.sdinfo@averion.sd</a>
+            |
+            .com" target="_blank">LinkedIn</a>
         </div>
 
     </div>
+
 </div>
 
 <div class="footer">
-    © 2026 Averion Engineering Enterprises
+    © Averion Engineering Enterprises. All Rights Reserved.
 </div>
 
 </body>
