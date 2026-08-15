@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Averion Engineering Enterprises</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 
 <style>
 
 :root{
-    --charcoal:#2C2C2C;
-    --grey:#A9A9A9;
-    --sand:#F5F5DC;
-    --copper:#B87333;
+    --charcoal:#1b1b1b;
+    --grey:#a9a9a9;
+    --sand:#f5f5dc;
+    --copper:#b87333;
 }
 
 *{
@@ -25,127 +26,142 @@
 
 body{
     font-family:'Montserrat',sans-serif;
-    background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=80');
+    min-height:100vh;
+    overflow-x:hidden;
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.78)),
+    url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=80");
+
     background-size:cover;
     background-position:center;
-    min-height:100vh;
-    overflow:hidden;
-    color:white;
+    background-attachment:fixed;
 }
 
-.overlay{
+/* Animated Background */
+
+.orb{
     position:fixed;
-    inset:0;
-    background:rgba(10,10,10,0.75);
+    border-radius:50%;
+    filter:blur(100px);
+    pointer-events:none;
+}
+
+.orb1{
+    width:300px;
+    height:300px;
+    background:rgba(184,115,51,.25);
+    top:-100px;
+    left:-100px;
+    animation:move1 15s infinite alternate;
+}
+
+.orb2{
+    width:250px;
+    height:250px;
+    background:rgba(255,255,255,.08);
+    bottom:-100px;
+    right:-100px;
+    animation:move2 18s infinite alternate;
 }
 
 .grid{
     position:fixed;
     inset:0;
+
     background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
     background-size:60px 60px;
 }
 
+/* Layout */
+
 .container{
-    position:relative;
-    z-index:2;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:40px 20px;
 }
 
 .content{
-    position:relative;
     width:100%;
-    max-width:900px;
+    max-width:850px;
+
     text-align:center;
 
-    background:rgba(255,255,255,0.08);
+    background:rgba(255,255,255,.08);
     backdrop-filter:blur(15px);
     -webkit-backdrop-filter:blur(15px);
 
-    border:1px solid rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,.15);
+
     border-radius:30px;
 
-    padding:60px;
+    padding:clamp(30px,5vw,60px);
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,0.45),
-        0 0 40px rgba(184,115,51,0.15);
+        0 20px 80px rgba(0,0,0,.5),
+        0 0 30px rgba(184,115,51,.15);
 
     animation:fadeUp 1.2s ease;
 }
 
-.content::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:220px;
-    height:3px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--copper),
-        transparent
-    );
-    box-shadow:0 0 20px var(--copper);
-}
-
-.logo{
-    margin-bottom:25px;
-}
-
 .logo img{
-    max-width:280px;
+    max-width:260px;
     width:100%;
     height:auto;
+    animation:logoFloat 5s ease-in-out infinite;
 }
 
 h1{
-    font-size:clamp(3rem,8vw,6rem);
+    font-size:clamp(2.5rem,8vw,5rem);
+    margin-top:20px;
     margin-bottom:15px;
-    font-weight:700;
 }
 
 .line{
     width:120px;
     height:4px;
     background:var(--copper);
+
     margin:25px auto;
-    box-shadow:0 0 20px var(--copper);
+
+    animation:glowPulse 2s infinite;
 }
 
 .tagline{
     color:var(--sand);
     text-transform:uppercase;
     letter-spacing:4px;
+    font-size:.95rem;
+
     margin-bottom:30px;
-    font-weight:500;
 }
 
 .description{
+    color:#dddddd;
+    line-height:1.8;
+    font-size:1.1rem;
+
     max-width:700px;
     margin:auto;
-    color:#ddd;
-    line-height:1.9;
-    font-size:1.1rem;
 }
+
+/* Progress */
 
 .progress-wrapper{
     margin-top:40px;
 }
 
 .progress{
-    width:100%;
     max-width:500px;
     margin:auto;
     height:10px;
+
     background:#333;
     border-radius:30px;
     overflow:hidden;
@@ -154,18 +170,23 @@ h1{
 .progress-fill{
     width:80%;
     height:100%;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         90deg,
         var(--copper),
-        #d9a066
+        #e0a06a
     );
-    animation:loadBar 2.5s ease;
+
+    animation:loadBar 3s ease;
 }
 
 .progress-text{
     margin-top:12px;
     color:#ccc;
 }
+
+/* Contact */
 
 .contact{
     margin-top:40px;
@@ -175,31 +196,34 @@ h1{
     color:var(--sand);
     text-decoration:none;
     margin:0 15px;
-    transition:0.3s;
+    font-weight:500;
 }
 
 .contact a:hover{
     color:var(--copper);
 }
 
+/* Footer */
+
 .footer{
-    position:fixed;
-    bottom:20px;
-    width:100%;
     text-align:center;
     color:#bdbdbd;
+    padding:20px;
     font-size:14px;
-    z-index:2;
 }
+
+/* Particles */
 
 .particle{
     position:fixed;
     width:4px;
     height:4px;
+    background:rgba(255,255,255,.4);
     border-radius:50%;
-    background:rgba(255,255,255,0.35);
     animation:float 15s linear infinite;
 }
+
+/* Animations */
 
 @keyframes fadeUp{
     from{
@@ -212,9 +236,31 @@ h1{
     }
 }
 
+@keyframes logoFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes glowPulse{
+    0%,100%{
+        box-shadow:0 0 10px var(--copper);
+    }
+    50%{
+        box-shadow:0 0 30px var(--copper);
+    }
+}
+
 @keyframes loadBar{
-    from{width:0;}
-    to{width:80%;}
+    from{
+        width:0;
+    }
+    to{
+        width:80%;
+    }
 }
 
 @keyframes float{
@@ -222,23 +268,41 @@ h1{
         transform:translateY(100vh);
         opacity:0;
     }
+
     20%{
         opacity:1;
     }
+
     to{
         transform:translateY(-100px);
         opacity:0;
     }
 }
 
+@keyframes move1{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(200px,150px);
+    }
+}
+
+@keyframes move2{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-150px,-120px);
+    }
+}
+
+/* Mobile */
+
 @media(max-width:768px){
 
-    .content{
-        padding:40px 25px;
-    }
-
-    h1{
-        font-size:3rem;
+    body{
+        background-attachment:scroll;
     }
 
     .tagline{
@@ -253,6 +317,11 @@ h1{
         display:block;
         margin:10px 0;
     }
+
+    .orb1,
+    .orb2{
+        display:none;
+    }
 }
 
 </style>
@@ -260,22 +329,24 @@ h1{
 
 <body>
 
-<div class="overlay"></div>
 <div class="grid"></div>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
 
 <div class="particle" style="left:10%;animation-delay:0s"></div>
 <div class="particle" style="left:25%;animation-delay:2s"></div>
-<div class="particle" style="left:40%;animation-delay:5s"></div>
+<div class="particle" style="left:40%;animation-delay:4s"></div>
 <div class="particle" style="left:55%;animation-delay:1s"></div>
-<div class="particle" style="left:70%;animation-delay:4s"></div>
-<div class="particle" style="left:85%;animation-delay:3s"></div>
+<div class="particle" style="left:70%;animation-delay:3s"></div>
+<div class="particle" style="left:85%;animation-delay:5s"></div>
 
 <div class="container">
 
     <div class="content">
 
         <div class="logo">
-            logo.png
+            <img src="logo.png" alt="Averion Logo">
         </div>
 
         <h1>Building The Future</h1>
@@ -286,12 +357,11 @@ h1{
             Engineering • Innovation • Excellence
         </div>
 
-        <div class="description">
-            Averion Engineering Enterprises is crafting a premium
-            digital experience that reflects our commitment to
-            engineering excellence, innovation, and exceptional
-            project delivery.
-        </div>
+        <p class="description">
+            Averion Engineering Enterprises is crafting a premium digital
+            experience that reflects our commitment to engineering excellence,
+            innovation, and exceptional project delivery.
+        </p>
 
         <div class="progress-wrapper">
             <div class="progress">
@@ -299,12 +369,13 @@ h1{
             </div>
 
             <div class="progress-text">
-                Website Progress • 80%
+                Website Launch Progress • 80%
             </div>
         </div>
 
         <div class="contact">
-           
+            info@averion.sd>
+            https://linkedin.com>
         </div>
 
     </div>
