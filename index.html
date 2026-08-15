@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Averion Architecture</title>
+<title>Averion Engineering Enterprises</title>
 
 <style>
 
@@ -16,189 +16,132 @@
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
+   *box-sizing:border-box;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+  * font-family:Arial, Helvetica, san*-serif;
     height:100vh;
-    overflow:hidden;
+    over*low:hidden;
     color:white;
+    p*sition:relative;
+}
+
+body::before{
+*   content:"";
+    position:fixed;*    inset:0;
 
     background:
-    linear-gradient(rgba(10,10,10,.82),rgba(10,10,10,.82)),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920');
-
+    *inear-gradient(
+        rgba(10,10*10,.65),
+        rgba(10,10,10,.65*
+    ),
+    url("background.jpg");*
     background-size:cover;
-    background-position:center;
+    ba*kground-position:center center;
+
+ *  animation:slowZoom 25s ease-in-o*t infinite alternate;
+
+    z-index*-2;
 }
-
-/* Background Grid */
-
-.grid{
-    position:fixed;
-    inset:0;
-
-    background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-
-    background-size:60px 60px;
-}
-
-/* Glowing Orbs */
-
-.orb{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(90px);
-}
-
-.orb1{
-    width:320px;
-    height:320px;
-    background:rgba(184,115,51,.18);
-    top:-100px;
-    left:-100px;
-    animation:move1 12s ease-in-out infinite alternate;
-}
-
-.orb2{
-    width:260px;
-    height:260px;
-    background:rgba(255,255,255,.06);
-    bottom:-100px;
-    right:-100px;
-    animation:move2 14s ease-in-out infinite alternate;
-}
-
-/* Layout */
 
 .container{
-    height:100vh;
+    height:100v*;
     display:flex;
-    justify-content:center;
-    align-items:center;
+    justify-co*tent:center;
+    align-items:cente*;
     padding:20px;
 }
 
 .content{
 
-    width:min(90vw,850px);
+*   width:min(90vw,850px);
 
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
+    bac*ground:rgba(20,20,20,.32);
 
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:30px;
+    ba*kdrop-filter:blur(25px);
+    -webk*t-backdrop-filter:blur(25px);
 
-    padding:40px;
+   *border:1px solid rgba(255,255,255,*08);
 
-    text-align:center;
+    border-radius:36px;
+
+   *padding:40px;
+
+    text-align:cent*r;
 
     box-shadow:
-    0 20px 80px rgba(0,0,0,.6),
-    0 0 30px rgba(184,115,51,.15);
+        0 30px*90px rgba(0,0,0,.65),
+        0 0 *0px rgba(184,115,51,.10);
 
-    animation:fadeUp 1.5s ease;
+    ani*ation:fadeUp 1.4s ease;
 }
 
-/* Logo */
-
-.logo img{
-    width:min(220px,45vw);
-    height:auto;
+.logo i*g{
+    width:min(320px,60vw);
+    *eight:auto;
 
     animation:
-    logoFloat 5s ease-in-out infinite,
-    logoGlow 4s ease-in-out infinite;
+      * logoFloat 8s ease-in-out infinite*
+        logoGlow 5s ease-in-out i*finite;
 }
 
-/* Heading */
+.accent-line{
+
+    widt*:180px;
+    height:2px;
+
+    margi*:15px auto 25px;
+
+    background:
+*       linear-gradient(
+          * 90deg,
+            transparent,
+ *          #B87333,
+            tra*sparent
+        );
+
+    animation:*lowPulse 3s infinite;
+}
 
 h1{
-    margin-top:15px;
-    font-size:clamp(2rem,6vw,5rem);
+    f*nt-size:clamp(2rem,6vw,4.5rem);
+  * margin-bottom:15px;
 
-    animation:titleGlow 4s ease-in-out infinite;
+    animatio*:titleGlow 5s ease-in-out infinite*
 }
-
-/* Divider */
-
-.line{
-    width:120px;
-    height:4px;
-
-    margin:20px auto;
-
-    background:var(--copper);
-
-    animation:glowPulse 2s infinite;
-}
-
-/* Tagline */
 
 .tagline{
-    color:var(--sand);
-    letter-spacing:3px;
+    color:var(--sand*;
     text-transform:uppercase;
+  * letter-spacing:3px;
 
-    margin-bottom:24px;
-
-    animation:taglineFloat 5s ease-in-out infinite;
+    margin-b*ttom:25px;
 }
-
-/* Description */
 
 .description{
-    max-width:700px;
+    fo*t-size:1.05rem;
+    line-height:1.*;
+    color:#eeeeee;
+
+    max-widt*:650px;
     margin:auto;
-    line-height:1.8;
-    font-size:1rem;
+
+    anim*tion:descriptionFloat 8s ease-in-o*t infinite;
 }
-
-.description span{
-    display:inline-block;
-    opacity:.35;
-    animation:textPulse 6s infinite;
-}
-
-.description span:nth-child(1){animation-delay:0s;}
-.description span:nth-child(2){animation-delay:.15s;}
-.description span:nth-child(3){animation-delay:.30s;}
-.description span:nth-child(4){animation-delay:.45s;}
-.description span:nth-child(5){animation-delay:.60s;}
-.description span:nth-child(6){animation-delay:.75s;}
-.description span:nth-child(7){animation-delay:.90s;}
-.description span:nth-child(8){animation-delay:1.05s;}
-.description span:nth-child(9){animation-delay:1.2s;}
-.description span:nth-child(10){animation-delay:1.35s;}
-.description span:nth-child(11){animation-delay:1.5s;}
-.description span:nth-child(12){animation-delay:1.65s;}
-.description span:nth-child(13){animation-delay:1.8s;}
-.description span:nth-child(14){animation-delay:1.95s;}
-.description span:nth-child(15){animation-delay:2.1s;}
-.description span:nth-child(16){animation-delay:2.25s;}
-.description span:nth-child(17){animation-delay:2.4s;}
-.description span:nth-child(18){animation-delay:2.55s;}
-.description span:nth-child(19){animation-delay:2.7s;}
-.description span:nth-child(20){animation-delay:2.85s;}
-.description span:nth-child(21){animation-delay:3s;}
-
-/* Progress */
 
 .progress-wrapper{
-    margin-top:28px;
+*   margin-top:35px;
 }
 
 .progress{
-    max-width:500px;
-    height:10px;
+*   width:min(500px,100%);
+    heig*t:10px;
 
     margin:auto;
 
-    background:#333;
-    border-radius:30px;
+    bac*ground:#333;
+    border-radius:50px;
     overflow:hidden;
 }
 
@@ -208,34 +151,24 @@ h1{
 
     background:
     linear-gradient(
-    90deg,
-    #B87333,
-    #E0A06A);
+        90deg,
+        #B87333,
+        #E0A06A
+    );
 
     animation:progressPulse 3s infinite;
 }
 
 .progress-text{
     margin-top:12px;
-    color:#d0d0d0;
+    color:#d6d6d6;
 }
-
-/* Contact */
 
 .contact{
     margin-top:25px;
-}
-
-.contact a{
-    text-decoration:none;
+    font-size:1rem;
     color:var(--sand);
 }
-
-.contact a:hover{
-    color:var(--copper);
-}
-
-/* Footer */
 
 .footer{
     position:absolute;
@@ -246,229 +179,187 @@ h1{
     color:#aaaaaa;
 }
 
-/* Particles */
+/* particles */
 
 .particle{
     position:fixed;
     width:4px;
     height:4px;
-    border-radius:50%;
+
     background:rgba(255,255,255,.35);
+
+    border-radius:50%;
 
     animation:float 14s linear infinite;
 }
 
-/* ANIMATIONS */
+/* animations */
+
+@keyframes slowZoom{
+    from{
+*       transform:scale(1);
+    }
+ *  to{
+        transform:scale(1.08*;
+    }
+}
 
 @keyframes fadeUp{
-    from{
+    *rom{
         opacity:0;
-        transform:translateY(40px);
+        tr*nsform:translateY(40px);
     }
-    to{
+   *to{
         opacity:1;
-        transform:translateY(0);
+        tra*sform:translateY(0);
     }
 }
 
-@keyframes logoFloat{
+@key*rames logoFloat{
     0%,100%{
-        transform:translateY(0);
+    *   transform:translateY(0);
     }
-    50%{
-        transform:translateY(-10px);
+*   50%{
+        transform:translat*Y(-8px);
     }
 }
 
-@keyframes logoGlow{
+@keyframes logoG*ow{
     0%,100%{
-        filter:drop-shadow(0 0 10px rgba(184,115,51,.2));
+        filter:dr*p-shadow(0 0 10px rgba(184,115,51,*2));
     }
+
     50%{
-        filter:drop-shadow(0 0 30px rgba(184,115,51,.8));
+        filte*:drop-shadow(0 0 35px rgba(184,115*51,.8));
     }
 }
 
-@keyframes titleGlow{
+@keyframes title*low{
     0%,100%{
-        text-shadow:0 0 10px rgba(184,115,51,.2);
-    }
+        text-sha*ow:0 0 10px rgba(184,115,51,.2);
+ *  }
+
     50%{
-        text-shadow:0 0 30px rgba(184,115,51,.8);
-    }
+        text-shadow:* 0 30px rgba(184,115,51,.75);
+    *
 }
 
 @keyframes glowPulse{
-    0%,100%{
-        box-shadow:0 0 10px rgba(184,115,51,.4);
+    0%,1*0%{
+        box-shadow:0 0 8px rgb*(184,115,51,.3);
     }
     50%{
-        box-shadow:0 0 30px rgba(184,115,51,.9);
+  *     box-shadow:0 0 25px rgba(184,*15,51,.9);
     }
 }
 
-@keyframes taglineFloat{
+@keyframes des*riptionFloat{
     0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-4px);
-    }
-}
-
-@keyframes textPulse{
-
-    0%{
-        opacity:.35;
-        color:#ddd;
+       *transform:translateY(0);
     }
 
-    15%{
-        opacity:1;
-        color:white;
-        transform:translateY(-2px);
-    }
-
-    25%{
-        color:#E0A06A;
-    }
-
-    40%{
-        opacity:.5;
-        transform:translateY(0);
-        color:#ddd;
-    }
-
-    100%{
-        opacity:.35;
+  * 50%{
+        transform:translateY*-4px);
     }
 }
 
-@keyframes progressPulse{
+@keyframes progres*Pulse{
     0%,100%{
-        filter:brightness(1);
+        filter*brightness(1);
     }
+
     50%{
-        filter:brightness(1.5);
+   *    filter:brightness(1.5);
     }
-}
-
-@keyframes move1{
-    from{transform:translate(0,0);}
-    to{transform:translate(180px,120px);}
-}
-
-@keyframes move2{
-    from{transform:translate(0,0);}
-    to{transform:translate(-180px,-120px);}
-}
+*
 
 @keyframes float{
     from{
-        transform:translateY(100vh);
-        opacity:0;
+    *   transform:translateY(100vh);
+  *     opacity:0;
     }
+
     20%{
-        opacity:1;
+  *     opacity:1;
     }
+
     to{
-        transform:translateY(-100px);
-        opacity:0;
+   *    transform:translateY(-100px);
+*       opacity:0;
     }
 }
 
-@media(max-width:768px){
-
-    .orb{
-        display:none;
-    }
+@media *max-width:768px){
 
     .content{
-        padding:25px;
+ *      padding:25px;
     }
 
-    .tagline{
+    .ta*line{
         letter-spacing:2px;
+*   }
+
+    .description{
+        fo*t-size:.95rem;
     }
 }
 
 </style>
-</head>
+<*head>
 
 <body>
 
-<div class="grid"></div>
-
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-
-<div class="particle" style="left:10%;animation-delay:0s;"></div>
-<div class="particle" style="left:25%;animation-delay:2s;"></div>
-<div class="particle" style="left:40%;animation-delay:4s;"></div>
-<div class="particle" style="left:55%;animation-delay:1s;"></div>
-<div class="particle" style="left:70%;animation-delay:3s;"></div>
-<div class="particle" style="left:85%;animation-delay:5s;"></div>
+<div class="particl*" style="left:10%;animation-delay:*s;"></div>
+<div class="particle" s*yle="left:25%;animation-delay:2s;"*</div>
+<div class="particle" style*"left:40%;animation-delay:4s;"></d*v>
+<div class="particle" style="le*t:55%;animation-delay:1s;"></div>
+*div class="particle" style="left:7*%;animation-delay:3s;"></div>
+<div*class="particle" style="left:85%;a*imation-delay:5s;"></div>
 
 <div class="container">
 
-<div class="content">
+    <div class="content">
 
-<div class="logo">
-<image src="logo.png" alt="Averion Logo">
-</div>
+        <div class="logo">
+            logo.png
+        </div>
 
-<h1>Building The Future</h1>
+        <div class="accent-line"></div>
 
-<div class="line"></div>
+        <h1>Crafting The Future</h1>
 
-<div class="tagline">
-Engineering • Innovation • Excellence
-</div>
+        <div class="tagline">
+            Architecture • Engineering • Construction
+        </div>
 
-<div class="description">
-<span>Averion</span>
-<span>Engineering</span>
-<span>Enterprises</span>
-<span>is</span>
-<span>crafting</span>
-<span>a</span>
-<span>premium</span>
-<span>digital</span>
-<span>experience</span>
-<span>that</span>
-<span>reflects</span>
-<span>our</span>
-<span>commitment</span>
-<span>to</span>
-<span>engineering</span>
-<span>excellence,</span>
-<span>innovation,</span>
-<span>and</span>
-<span>exceptional</span>
-<span>project</span>
-<span>delivery.</span>
-</div>
+        <div class="description">
+            A premium digital experience is currently under construction.
+            We are building something exceptional that reflects our commitment
+            to engineering excellence, innovative design, and outstanding execution.
+        </div>
 
-<div class="progress-wrapper">
-<div class="progress">
-<div class="progress-fill"></div>
-</div>
+        <div class="progress-wrapper">
 
-<div class="progress-text">
-Launching Soon • 80%
-</div>
-</div>
+            <div class="progress">
+                <div class="progress-fill"></div>
+            </div>
 
-<div class="contact">
-info@averionarchitecture.com
-</div>
+            <div class="progress-text">
+                A New Experience Is Coming
+            </div>
 
-</div>
+        </div>
+
+        <div class="contact">
+            info@averionarchitecture.com
+        </div>
+
+    </div>
 
 </div>
 
 <div class="footer">
-© Averion Architecture. All Rights Reserved.
+    © Averion Engineering Enterprises. All Rights Reserved.
 </div>
 
 </body>
