@@ -131,15 +131,21 @@ body::before{
 
 /* LOGO */
 
-.logo img{
+.logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:10px;
+}
 
-    width:min(320px,60vw);
+.logo img{
+    width:180px;
+    max-width:35vw;
     height:auto;
+    object-fit:contain;
 
     animation:
-    logoFloat 8s ease-in-out infinite,
-    logoGlow 5s ease-in-out infinite;
-    
+        logoFloat 8s ease-in-out infinite,
+        logoGlow 5s ease-in-out infinite;
 }
 
 .accent-line{
@@ -158,6 +164,13 @@ body::before{
     );
 
     animation:glowPulse 3s infinite;
+}
+    @media(max-width:768px){
+
+    .logo img{
+        width:140px;
+        max-width:45vw;
+    }
 }
 
 /* HEADING */
